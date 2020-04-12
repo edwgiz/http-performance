@@ -1,4 +1,4 @@
-package com.github.edwgiz.sample.microservice.http.grizzly;
+package com.github.edwgiz.sample.microservice.http.performance.grizzly;
 
 import org.glassfish.grizzly.Buffer;
 import org.glassfish.grizzly.http.io.OutputBuffer;

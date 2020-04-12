@@ -13,6 +13,7 @@
         <module>quarkus</module>
         <module>vertx</module>
         <module>grizzly</module>
+        <module>jersey</module>
     </modules>
 
     <properties>
