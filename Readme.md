@@ -26,3 +26,6 @@ Micronaut-Netty Async | 49690 | 59 | 525
 Quarkus Sync | 36110 | 60 | 420
 Quarkus Async | 33808 | 61 | 440 
 Vertx Async | 49640 | 15 | 366
+Grizzly Sync | 57168 | 49 | 357
+
+

@@ -7,3 +7,5 @@
 /quarkus/target/
 /vertx/vertx.iml
 /vertx/target/
+/grizzly/grizzly.iml
+/grizzly/target

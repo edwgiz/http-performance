@@ -12,10 +12,12 @@
         <module>micronaut</module>
         <module>quarkus</module>
         <module>vertx</module>
+        <module>grizzly</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <compiler-plugin.version>3.8.1</compiler-plugin.version>
     </properties>
 
 </project>
