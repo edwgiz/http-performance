@@ -28,4 +28,5 @@ Quarkus Async | 33808 | 61 | 440
 Vertx Async | 49640 | 15 | 366
 Grizzly Sync | 57168 | 49 | 357
 Jersey-Grizzly Sync | 39856 | 60 | 485
+Reactor-Netty Async | 52331 | 40 | 1660
 
