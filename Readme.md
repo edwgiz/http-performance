@@ -22,4 +22,6 @@ Jersey was tested vs applied  `src/test/resources/performance-test.jmx` JMeter s
 Implementation | Throughput, requests/sec | CPU, % | RAM, MB  
  --- | ---: | ---: | ---:
 Micronaut-Netty Sync | 51710 | 57 | 682
-Micronaut-Netty Async | 49690 | 59 | 525 
+Micronaut-Netty Async | 49690 | 59 | 525
+Quarkus Sync | 36110 | 60 | 420
+ 

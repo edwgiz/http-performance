@@ -3,3 +3,5 @@
 /target/
 /micronaut/micronaut.iml
 /micronaut/target/
+/quarkus/quarkus.iml
+/quarkus/target/

@@ -10,6 +10,7 @@
     <version>1.0</version>
     <modules>
         <module>micronaut</module>
+        <module>quarkus</module>
     </modules>
 
     <properties>
