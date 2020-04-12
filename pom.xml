@@ -15,6 +15,7 @@
         <module>grizzly</module>
         <module>jersey</module>
         <module>reactor-netty</module>
+        <module>spring-webflux</module>
     </modules>
 
     <properties>
