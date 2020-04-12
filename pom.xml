@@ -11,6 +11,7 @@
     <modules>
         <module>micronaut</module>
         <module>quarkus</module>
+        <module>vertx</module>
     </modules>
 
     <properties>

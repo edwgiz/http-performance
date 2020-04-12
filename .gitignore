@@ -5,3 +5,5 @@
 /micronaut/target/
 /quarkus/quarkus.iml
 /quarkus/target/
+/vertx/vertx.iml
+/vertx/target/
