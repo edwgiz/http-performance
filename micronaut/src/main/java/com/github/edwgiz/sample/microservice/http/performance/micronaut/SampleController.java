@@ -7,6 +7,8 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Put;
 import io.micronaut.validation.Validated;
 
+import java.util.concurrent.CompletableFuture;
+
 import static io.micronaut.http.HttpResponse.created;
 
 
@@ -15,8 +17,8 @@ import static io.micronaut.http.HttpResponse.created;
 public class SampleController {
 
     @Put(uri = "/sample", processes = MediaType.TEXT_PLAIN)
-    public HttpResponse<String> sample(@Body String value) {
-        return created("Hello " + value + "!");
+    public CompletableFuture<HttpResponse<String>> sample(@Body CompletableFuture<String> value) {
+        return value.thenApply(v -> created("Hello " + value + "!"));
     }
 
 }
