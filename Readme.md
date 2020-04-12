@@ -24,4 +24,4 @@ Implementation | Throughput, requests/sec | CPU, % | RAM, MB
 Micronaut-Netty Sync | 51710 | 57 | 682
 Micronaut-Netty Async | 49690 | 59 | 525
 Quarkus Sync | 36110 | 60 | 420
- 
+Quarkus Async | 33808 | 61 | 440 
