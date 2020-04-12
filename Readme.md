@@ -19,5 +19,6 @@ System configuration is
 Jersey was tested vs applied  `src/test/resources/performance-test.jmx` JMeter scenario.
 32 threads, 3200000 requests
 
- Implementation   | Throughput, requests/sec | RAM, MB | CPU, % |  
+Implementation | Throughput, requests/sec | CPU, % | RAM, MB  
  --- | ---: | ---: | ---:
+Micronaut-Netty Sync | 51710 | 57 | 682
