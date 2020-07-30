@@ -21,6 +21,8 @@ Implementation | Throughput, requests/sec | CPU, % | RAM, MB
  --- | ---: | ---: | ---:
 Micronaut-Netty Sync | 51710 | 57 | 682
 Micronaut-Netty Async | 49690 | 59 | 525
+Micronaut-Netty Async graalvm-ce-java11 WLS-2 | 28861 | 42 | 959
+Micronaut-Netty Async graalvm-ce-java11 native-image\* WLS-2 | 21954 | 59 | 530
 Quarkus Sync | 36110 | 60 | 420
 Quarkus Async | 33808 | 61 | 440 
 Vertx Async | 49640 | 15 | 366
@@ -29,3 +31,6 @@ Jersey-Grizzly Sync | 39856 | 60 | 485
 Reactor-Netty Async | 52331 | 40 | 1660
 Spring-Webflux Async | 36848 | 51 | 475
 
+\* Graalvm native-image built with command
+```/usr/lib/jvm/graalvm-ce-java11-20.1.0/bin/native-image --no-fallback -jar micronaut/target/micronaut-1.0.jar```
+. Its startup time is 105 ms only.

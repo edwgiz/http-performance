@@ -12,11 +12,12 @@
     <artifactId>micronaut</artifactId>
 
     <properties>
-        <maven.compiler.release>15</maven.compiler.release>
+        <maven.compiler.release>11</maven.compiler.release>
         <maven.compiler.source>${maven.compiler.release}</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.release}</maven.compiler.target>
+        <exec.mainClass>com.github.edwgiz.sample.microservice.http.performance.micronaut.Application</exec.mainClass>
 
-        <micronaut.version>2.0.0.M2</micronaut.version>
+        <micronaut.version>2.0.1</micronaut.version>
     </properties>
 
     <repositories>
@@ -81,8 +82,13 @@
                     <target>${maven.compiler.release}</target>
                     <optimize>true</optimize>
                     <compilerArgs>
-                        <arg>--enable-preview</arg>
-                        <arg>-J-Dmicronaut.openapi.views.spec=rapidoc.enabled=true,swagger-ui.enabled=true,swagger-ui.theme=flattop</arg>
+                        <arg>
+                            -J-Dmicronaut.openapi.views.spec=rapidoc.enabled=true,swagger-ui.enabled=true,swagger-ui.theme=flattop
+                        </arg>
+                        <arg>
+                            -Amicronaut.processing.group=com.github.edwgiz.sample.microservice.http.performance.micronaut
+                        </arg>
+                        <arg>-Amicronaut.processing.module=micronaut-sample-microservice</arg>
                     </compilerArgs>
                     <annotationProcessorPaths>
                         <path>
@@ -98,10 +104,64 @@
                         <path>
                             <groupId>io.micronaut.configuration</groupId>
                             <artifactId>micronaut-openapi</artifactId>
-                            <version>1.1.1</version>
+                            <version>1.5.2</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>.gitkeep</exclude>
+                                        <exclude>module-info.class</exclude>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
+                                        <exclude>META-INF/maven/**</exclude>
+                                        <exclude>META-INF/NOTICE*</exclude>
+                                        <exclude>META-INF/LICENSE*</exclude>
+                                        <exclude>META-INF/README*</exclude>
+                                        <exclude>META-INF/ABOUT*</exclude>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <manifestEntries>
+                                        <Main-Class>${exec.mainClass}</Main-Class>
+                                        <!-- security -->
+                                        <Entry-Point>${exec.mainClass}</Entry-Point>
+                                        <Trusted-Only>true</Trusted-Only>
+                                        <Trusted-Library>true</Trusted-Library>
+                                        <Sealed>true</Sealed>
+                                        <!-- meta -->
+                                        <Application-Name>${project.name}</Application-Name>
+                                        <Implementation-Title>${project.name}-default</Implementation-Title>
+                                        <Implementation-Version>${project.version}</Implementation-Version>
+                                        <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+                                    </manifestEntries>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
