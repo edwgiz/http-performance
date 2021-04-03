@@ -19,6 +19,7 @@ All REST stubs were tested vs applied  `src/test/resources/performance-test.jmx`
 
 Implementation | Throughput, requests/sec | CPU, % | RAM, MB  
  --- | ---: | ---: | ---:
+Rust Actix Async | 71545 | 29 | 5
 Micronaut-Netty Sync | 51710 | 57 | 682
 Micronaut-Netty Async | 49690 | 59 | 525
 Micronaut-Netty Async graalvm-ce-java11 WLS-2 | 28861 | 42 | 959
